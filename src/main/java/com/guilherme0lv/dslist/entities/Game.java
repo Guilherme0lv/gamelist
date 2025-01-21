@@ -2,6 +2,7 @@ package com.guilherme0lv.dslist.entities;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,20 +20,26 @@ public class Game {
 	private Integer ano;
 	private String genero;
 	private String plataforma;
-	private String imgURL;
+	private Double score;
+	private String imgUrl;
+	
+	@Column(columnDefinition = "TEXT")
 	private String descricaoCurta;
+	
+	@Column(columnDefinition = "TEXT")
 	private String descricao;
 	
 	public Game() {
 	}
 
-	public Game(Long id, String titulo, Integer ano, String genero, String plataforma, String imgURL, String descricaoCurta, String descricao) {
+	public Game(Long id, String titulo, Integer ano, String genero, String plataforma, Double score, String imgURL, String descricaoCurta, String descricao) {
 		this.id = id;
 		this.titulo = titulo;
 		this.ano = ano;
 		this.genero = genero;
 		this.plataforma = plataforma;
-		this.imgURL = imgURL;
+		this.score = score;
+		this.imgUrl = imgURL;
 		this.descricaoCurta = descricaoCurta;
 		this.descricao = descricao;
 	}
@@ -76,13 +83,21 @@ public class Game {
 	public void setPlataforma(String plataforma) {
 		this.plataforma = plataforma;
 	}
+	
+	public Double getScore() {
+		return score;
+	}
+
+	public void setScore(Double score) {
+		this.score = score;
+	}
 
 	public String getImgURL() {
-		return imgURL;
+		return imgUrl;
 	}
 
 	public void setImgURL(String imgURL) {
-		this.imgURL = imgURL;
+		this.imgUrl = imgURL;
 	}
 
 	public String getDescricaoCurta() {
